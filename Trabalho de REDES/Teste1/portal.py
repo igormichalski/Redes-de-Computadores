@@ -3,7 +3,7 @@ import sys
 import random
 
 # Lista de servidores
-servers = [("192.168.11.107", 9001), ("192.168.11.107", 9002), ("192.168.11.107", 9003)]
+servers = [("192.168.11.107", 9001), ("192.168.11.107", 9002), ("192.168.11.107", 9003)] #Ips de onde estao os servidores
 
 def enviar_string(ip, port, mensagem):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as envia:
@@ -102,7 +102,7 @@ def handle_client(client_socket, mode, RR, portaString):
         client_socket.close()
         #Enviar o resultado da execução de volta para o cliente
         print(portaString[0])
-        enviar_string('192.168.11.137', portaString[0], resultado_final)  
+        enviar_string('192.168.11.137', portaString[0], resultado_final) #ip de onde esta o cliente
         portaString[0] += 1
         return RR
 
@@ -120,7 +120,7 @@ def main():
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
         server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        server_socket.bind(('192.168.11.107', port))
+        server_socket.bind(('192.168.11.107', port)) #ip de onde esta o portal (acredito eu)
         server_socket.listen(5)
         print(f"Portal ouvindo em {server_socket.getsockname()}")
 
