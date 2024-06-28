@@ -61,7 +61,7 @@ def handle_portal(portal_socket):
             print(f"Resultado da execução:\n{result}")
             
             # Enviar o resultado da execução de volta para o portal
-            enviar_string('192.168.11.107', 8001, result)
+            enviar_string('192.168.11.107', 8001, result) #ip de onde esta o portal
 
     except Exception as e:
         print(f"Erro no tratamento do portal: {e}")
@@ -76,7 +76,7 @@ def main():
     port = int(sys.argv[1])
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
-        server_socket.bind(('192.168.11.107', port))
+        server_socket.bind(('192.168.11.107', port)) #ip onde esta o servidor
         server_socket.listen(5)
         print(f"Servidor ouvindo em {server_socket.getsockname()}")
 
