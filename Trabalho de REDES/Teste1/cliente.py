@@ -38,7 +38,7 @@ def enviar_arquivos(ip, port, arquivos):
 def receber_resultado(port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as recebe:
         #Ip para onde o portal esta enviando a resposta #configurar para ser o ip do cliente que esta enviando o arquivo
-        recebe.bind(('192.168.11.137', port)) 
+        recebe.bind(('192.168.11.137', port)) #ip do portal
         recebe.listen(1)
         resultado = ""
         
@@ -54,7 +54,7 @@ def receber_resultado(port):
 
 def main():
     if len(sys.argv) != 3:
-        print("Uso: client.py <ip/nome_maquina> <porta>")
+        print("Uso: client.py <ip/nome_maquina> <porta>") #ip e porta do portal
         sys.exit(1)
 
     ip = sys.argv[1]
